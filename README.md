@@ -11,7 +11,7 @@ rm -f /usr/bin/enc && wget -q -O /usr/bin/enc "https://raw.githubusercontent.com
 
 # HOW TO USE
 
-### 1. JUST UPLOAD YOUR SOURCE SCRIPT TO ANY PATH (DEFAULT : /root/enc)
+### 1. JUST UPLOAD YOUR SOURCE SCRIPT TO ANY PATH (DEFAULT : /root/kaizenvpnenc)
 ### 2. THEN TYPE 'enc' TO OPEN MENU
 
 ```

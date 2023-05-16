@@ -1,11 +1,14 @@
-# AUTO ENCRYPT SHELL FILE (.sh)
-
+# 1) INSTALL THIS REQUIREMENT
 ```
 apt-get install curl
+```
+
+# 2) INTSTALL THIS AUTO ENCRYPT SHELL FILE (.sh)
+```
 wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/rewasu91/encrypt/main/auto.sh" && chmod +x /usr/bin/enc && apt install make && apt install gcc && apt install shc
 ```
 
-## UPDATE SCRIPT
+# UPDATE SCRIPT (OPTIONAL)
 ```
 rm -f /usr/bin/enc && wget -q -O /usr/bin/enc "https://raw.githubusercontent.com/rewasu91/encrypt/main/auto.sh" && chmod +x /usr/bin/enc
 ```

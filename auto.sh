@@ -4,7 +4,7 @@ biji=$(date +"%Y-%m-%d" -d "$dateFromServer")
 #########################
 
 BURIQ() {
-	curl -sS https://raw.githubusercontent.com/syfqsamvpn/encrypt/main/allow >/root/tmp
+	curl -sS https://raw.githubusercontent.com/rewasu91/encrypt/main/allow >/root/tmp
 	data=($(cat /root/tmp | grep -E "^### " | awk '{print $2}'))
 	for user in "${data[@]}"; do
 		exp=($(grep -E "^### $user" "/root/tmp" | awk '{print $3}'))
@@ -21,7 +21,7 @@ BURIQ() {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-Name=$(curl -sS https://raw.githubusercontent.com/syfqsamvpn/encrypt/main/allow | grep $MYIP | awk '{print $2}')
+Name=$(curl -sS https://raw.githubusercontent.com/rewasu91/encrypt/main/allow | grep $MYIP | awk '{print $2}')
 echo $Name >/usr/local/etc/.$Name.ini
 CekOne=$(cat /usr/local/etc/.$Name.ini)
 
@@ -38,7 +38,7 @@ Bloman() {
 
 PERMISSION() {
 	MYIP=$(curl -sS ipv4.icanhazip.com)
-	IZIN=$(curl -sS https://raw.githubusercontent.com/syfqsamvpn/encrypt/main/allow | awk '{print $4}' | grep $MYIP)
+	IZIN=$(curl -sS https://raw.githubusercontent.com/rewasu91/encrypt/main/allow | awk '{print $4}' | grep $MYIP)
 	if [ "$MYIP" = "$IZIN" ]; then
 		Bloman
 	else
@@ -62,19 +62,19 @@ encryptReqv1() {
 	echo -e "\033[0;34mPLEASE INPUT YOUR TARGET PATH\033[0m"
 	echo -e "\033[0;34mIF USE DEFAULT PATH , JUST CLICK ENTER\033[0m"
 	echo ""
-	echo -ne "DIRECTORY [default: \E[44;1;39m/root/samenc\E[0m] : "
+	echo -ne "DIRECTORY [default: \E[44;1;39m/root/kaizenvpnenc\E[0m] : "
 	read dir
-	[[ -z $dir ]] && dir="/root/samenc"
-	ls -d $dir/*/ >/root/samdir
-	ls -d $dir/*/*/ >>/root/samdir
-	a=$(cat /root/samdir)
+	[[ -z $dir ]] && dir="/root/kaizenvpnenc"
+	ls -d $dir/*/ >/root/kaizenvpndir
+	ls -d $dir/*/*/ >>/root/kaizenvpndir
+	a=$(cat /root/kaizenvpndir)
 	for b in $a; do
-		ls $b*.sh >>/root/samdirfile
+		ls $b*.sh >>/root/kaizenvpndirfile
 		clear
 	done
-	ls $dir/*.sh >/root/samencfile
-	auto=$(cat /root/samencfile)
-	encdir=$(cat /root/samdirfile)
+	ls $dir/*.sh >/root/kaizenvpnencfile
+	auto=$(cat /root/kaizenvpnencfile)
+	encdir=$(cat /root/kaizenvpndirfile)
 	for encc in $encdir; do
 		shc -r -f $encc
 	done
@@ -92,9 +92,9 @@ encryptReqv1() {
 		done
 	done
 	rm -f /$dir/*.c
-	rm -f /root/samdir
-	rm -f /root/samencfile
-	rm -f /root/samdirfile
+	rm -f /root/kaizenvpndir
+	rm -f /root/kaizenvpnencfile
+	rm -f /root/kaizenvpndirfile
 	clear
 	echo -e '\e[0;32mDONE ENCRYPT\033[0m'
 	echo -e ''
@@ -108,19 +108,19 @@ encryptReqv2() {
 	echo -e "\033[0;34mPLEASE INPUT YOUR TARGET PATH\033[0m"
 	echo -e "\033[0;34mIF USE DEFAULT PATH , JUST CLICK ENTER\033[0m"
 	echo ""
-	echo -ne "DIRECTORY [default: \E[44;1;39m/root/samenc\E[0m] : "
+	echo -ne "DIRECTORY [default: \E[44;1;39m/root/kaizenvpnenc\E[0m] : "
 	read dir
-	[[ -z $dir ]] && dir="/root/samenc"
-	ls -d $dir/*/ >/root/samdir
-	ls -d $dir/*/*/ >>/root/samdir
-	a=$(cat /root/samdir)
+	[[ -z $dir ]] && dir="/root/kaizenvpnenc"
+	ls -d $dir/*/ >/root/kaizenvpndir
+	ls -d $dir/*/*/ >>/root/kaizenvpndir
+	a=$(cat /root/kaizenvpndir)
 	for b in $a; do
-		ls $b*.sh >>/root/samdirfile
+		ls $b*.sh >>/root/kaizenvpndirfile
 		clear
 	done
-	ls $dir/*.sh >/root/samencfile
-	auto=$(cat /root/samencfile)
-	encdir=$(cat /root/samdirfile)
+	ls $dir/*.sh >/root/kaizenvpnencfile
+	auto=$(cat /root/kaizenvpnencfile)
+	encdir=$(cat /root/kaizenvpndirfile)
 	for encc in $encdir; do
 		shc -r -v -f $encc
 	done
@@ -138,9 +138,9 @@ encryptReqv2() {
 		done
 	done
 	rm -f /$dir/*.c
-	rm -f /root/samdir
-	rm -f /root/samencfile
-	rm -f /root/samdirfile
+	rm -f /root/kaizenvpndir
+	rm -f /root/kaizenvpnencfile
+	rm -f /root/kaizenvpndirfile
 	clear
 	echo -e '\e[0;32mDONE ENCRYPT\033[0m'
 	echo -e ''
@@ -151,23 +151,23 @@ encryptReqv2() {
 }
 
 MYIP=$(curl -sS ipv4.icanhazip.com)
-client=$(curl -sS https://raw.githubusercontent.com/syfqsamvpn/encrypt/main/allow | grep $MYIP | awk '{print $2}')
-exp=$(curl -sS https://raw.githubusercontent.com/syfqsamvpn/encrypt/main/allow | grep $MYIP | awk '{print $3}')
+client=$(curl -sS https://raw.githubusercontent.com/rewasu91/encrypt/main/allow | grep $MYIP | awk '{print $2}')
+exp=$(curl -sS https://raw.githubusercontent.com/rewasu91/encrypt/main/allow | grep $MYIP | awk '{print $3}')
 yell='\e[1;33m'
 NC='\e[0m'
 if [ ! -f /usr/bin/zip ]; then
 	apt install zip -y &>/dev/null
 	apt install git -y &>/dev/null
 fi
-if [ ! -d /root/samenc ]; then
-	mkdir /root/samenc
+if [ ! -d /root/kaizenvpnenc ]; then
+	mkdir /root/kaizenvpnenc
 else
 	echo -ne "[ ${yell}WARNING${NC} ] Do you want to Clear Encrypt Folder ? (y/n)? "
 	read answer
 	if [ "$answer" == "${answer#[Yy]}" ]; then
 		echo ""
 	else
-		rm -rf /root/samenc/*
+		rm -rf /root/kaizenvpnenc/*
 	fi
 fi
 clear

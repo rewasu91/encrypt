@@ -3,6 +3,8 @@ dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Dat
 biji=$(date +"%Y-%m-%d" -d "$dateFromServer")
 #########################
 
+apt-get install curl
+
 BURIQ() {
 	curl -sS https://raw.githubusercontent.com/rewasu91/encrypt/main/allow >/root/tmp
 	data=($(cat /root/tmp | grep -E "^### " | awk '{print $2}'))
